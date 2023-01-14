@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "954369643795",
+    "project_id": "selekni-fd64c",
+    "storage_bucket": "selekni-fd64c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954369643795:android:32f535e9b2723c3e07f6e6",
+        "android_client_info": {
+          "package_name": "com.example.selkni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954369643795-2dl3fprdvekvudgeacgivov0timjcbna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.selkni",
+            "certificate_hash": "30e89cc2082d8fe89ebdac820eaab460b269a1da"
+          }
+        },
+        {
+          "client_id": "954369643795-e4nvuaih0qklghqc4gj2ii85pn672s3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvqv3K-Pch-3T6DA3luRfglN5XmjGOG8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "954369643795-e4nvuaih0qklghqc4gj2ii85pn672s3q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "954369643795-comngambc149grgmoqv4rc408lef6gmb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.selkni"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
