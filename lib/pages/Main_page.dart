@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:selkni/map/google-map.dart';
 import 'package:selkni/pages/HomePage.dart';
 import 'package:selkni/pages/auth/auth_page.dart';
 
@@ -13,7 +14,7 @@ class MainPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return const HomePage();
+            return MapG();
           } else {
             return const Auth();
           }

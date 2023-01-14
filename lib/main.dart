@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:selkni/pages/HomePage.dart';
 import 'package:selkni/pages/Main_page.dart';
 import 'package:selkni/pages/user-interface/Login.dart';
@@ -7,6 +8,7 @@ import 'package:selkni/pages/user-interface/Login.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  LocationPermission permission = await Geolocator.requestPermission();
 
   runApp(MyApp());
 }

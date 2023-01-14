@@ -34,7 +34,8 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Center(
             child: Text(
-              user.displayName!,
+              user.email!,
+              semanticsLabel: user.displayName,
             ),
           ),
           actions: [

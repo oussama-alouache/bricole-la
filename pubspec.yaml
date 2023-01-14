@@ -40,6 +40,13 @@ dependencies:
   google_fonts: ^3.0.1
   firebase_auth: ^4.2.5
   google_sign_in: ^5.4.2
+  google_maps_flutter: ^2.2.3
+  geolocator: ^9.0.2
+
+  location: any
+  flutter_polyline_points: ^1.0.0
+
+   
 
 dev_dependencies:
   flutter_test:

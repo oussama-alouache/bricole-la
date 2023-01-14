@@ -11,10 +11,12 @@ class Forgetpassword extends StatefulWidget {
 
 class _ForgetpasswordState extends State<Forgetpassword> {
   // email controller
+  // ignore: non_constant_identifier_names
   final _EmailController = TextEditingController();
 
   @override
   void dispose() {
+    // ignore: todo
     // TODO: implement dispose
     _EmailController.dispose();
 
@@ -28,7 +30,7 @@ class _ForgetpasswordState extends State<Forgetpassword> {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
+          return const AlertDialog(
             content: Text(" email envoyer"),
             //content: Text(e.message.toString()),
           );
@@ -39,7 +41,7 @@ class _ForgetpasswordState extends State<Forgetpassword> {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
+          return const AlertDialog(
             content: Text(" erreur email"),
             //content: Text(e.message.toString()),
           );
