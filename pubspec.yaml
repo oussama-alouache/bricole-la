@@ -45,6 +45,8 @@ dependencies:
 
   location: any
   flutter_polyline_points: ^1.0.0
+  geocoding: ^2.0.5
+
 
    
 
