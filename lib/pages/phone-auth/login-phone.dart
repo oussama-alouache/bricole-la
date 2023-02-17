@@ -169,6 +169,13 @@ class _PhonrLogState extends State<PhonrLog> {
   }
 
   void sendnumber() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Center(child: CircularProgressIndicator());
+      },
+    );
+
     final ap = Provider.of<AuthProvider>(context, listen: false);
     String phonenumber = PhoneController.text.trim();
     ap.sigininwithphone(context, "+${seletedcountry.phoneCode}$phonenumber");

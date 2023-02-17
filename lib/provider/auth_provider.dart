@@ -41,6 +41,7 @@ class AuthProvider extends ChangeNotifier {
     try {
       await FirebaseAuth.instance.verifyPhoneNumber(
           phoneNumber: phonenumber,
+          timeout: Duration(),
           verificationCompleted:
               (PhoneAuthCredential phoneAuthCredential) async {
             FirebaseAuth.instance.signInWithCredential(phoneAuthCredential);

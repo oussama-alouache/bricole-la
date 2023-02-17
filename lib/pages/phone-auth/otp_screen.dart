@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
-import 'package:selkni/pages/phone-auth/userinfo%20copy.dart';
 import 'package:selkni/pages/phone-auth/userinfo.dart';
 import 'package:selkni/provider/auth_provider.dart';
 import 'package:selkni/utilities/phoneutiliti.dart';
@@ -154,7 +153,7 @@ class _OtpState extends State<Otp> {
             if (value == true) {
               Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => userlog()),
+                  MaterialPageRoute(builder: (context) => Userinfo()),
                   (route) => false);
             } else {
               Navigator.pushAndRemoveUntil(
