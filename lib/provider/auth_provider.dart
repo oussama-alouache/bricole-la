@@ -6,10 +6,10 @@ import 'package:selkni/utilities/phoneutiliti.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthProvider extends ChangeNotifier {
-  bool _issignin = true;
+  bool _issignin = false;
 
   bool get issignin => _issignin;
-  bool _isloeaed = true;
+  bool _isloeaed = false;
   bool get isloeaed => _isloeaed;
 
   String? _uid;
@@ -74,8 +74,9 @@ class AuthProvider extends ChangeNotifier {
       PhoneAuthCredential creed = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: userotp);
 
-      User user =
-          (await FirebaseAuth.instance.signInWithCredential(creed)).user!;
+      User? user =
+          (await FirebaseAuth.instance.signInWithCredential(creed)).user;
+
       if (user != null) {
         _uid = user.uid;
         onsucess();
