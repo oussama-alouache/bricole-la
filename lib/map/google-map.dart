@@ -1,12 +1,10 @@
-import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:selkni/constant.dart';
+import 'package:selkni/utilities/sidebar..dart';
 
 class MapG extends StatefulWidget {
   Position? position;
@@ -41,6 +39,17 @@ class _MapGState extends State<MapG> {
   // ignore: prefer_typing_uninit
   // ialized_variables
 
+  late Position currntp;
+
+  var geolocator = Geolocator();
+
+  void pos() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best);
+    currntp = position;
+    LatLng myposs = LatLng(position.latitude, position.longitude);
+  }
+
   void lov() {
     Geolocator.getPositionStream().listen((Position position) {
       widget.position = position;
@@ -54,8 +63,10 @@ class _MapGState extends State<MapG> {
     widget.position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.best);
     List<Placemark> newPlace = await placemarkFromCoordinates(
-        widget.position!.latitude, widget.position!.longitude);
+        widget.position!.latitude, widget.position!.longitude,
+        localeIdentifier: 'Ar');
     Placemark placeMark = newPlace[0];
+
     String name = placeMark.name.toString();
     String subLocality = placeMark.subLocality.toString();
     String locality = placeMark.locality.toString();
@@ -63,7 +74,7 @@ class _MapGState extends State<MapG> {
     String postalCode = placeMark.postalCode.toString();
     String country = placeMark.country.toString();
     String address =
-        "${name},${locality},${aministrativeArea} ${postalCode}, ${country}";
+        "${name}    ${locality}  ${aministrativeArea}  ${postalCode}  ${country}";
     print('${address}');
     print('${widget.position!.longitude}');
 
@@ -105,6 +116,7 @@ class _MapGState extends State<MapG> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Sidebar(),
       appBar: AppBar(
         title: Center(
           child: Text(
@@ -115,8 +127,8 @@ class _MapGState extends State<MapG> {
       ),
       body: widget.isload
           ? GoogleMap(
-              initialCameraPosition: const CameraPosition(
-                target: mycurrentposition,
+              initialCameraPosition: CameraPosition(
+                target: currentposition,
                 zoom: 14,
               ),
               polylines: {
@@ -131,7 +143,7 @@ class _MapGState extends State<MapG> {
                 mapController = controller;
                 addMarker('test', mycurrentposition, mycurrentposition);
                 addMarker('test1', currentposition, currentposition);
-                addMarker('test8', currentposition, currentposition);
+
                 addMarker('test2', destinationposition, destinationposition);
               },
               markers: _Markers.values.toSet(),

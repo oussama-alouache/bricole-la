@@ -4,7 +4,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
+import 'package:selkni/map/google-map.dart';
+import 'package:selkni/pages/phone-auth/login-phone.dart';
 import 'package:selkni/pages/user-interface/forgetpaswod.dart';
+import 'package:selkni/provider/auth_provider.dart';
 
 class Login extends StatefulWidget {
   final VoidCallback showregisterpage;
@@ -95,6 +99,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final ap = Provider.of<AuthProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: Colors.blue[300],
       body: SafeArea(
@@ -224,7 +229,9 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-
+              Divider(
+                color: Colors.black,
+              ),
               const SizedBox(
                 height: 25,
               ),
@@ -257,7 +264,12 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: GestureDetector(
-                  onTap: signInwithGoogle,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PhonrLog()));
+                  },
                   child: Container(
                     padding: EdgeInsets.all(20.0),
                     decoration: BoxDecoration(
